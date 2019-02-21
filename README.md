@@ -2,7 +2,6 @@
 
 [![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter)
 [![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/travisjeffery/mocha-teamcity-reporter)
-[![semantic-release][semantic-image] ][semantic-url]
 
 # cypress-teamcity-reporter
 
