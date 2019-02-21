@@ -1,7 +1,11 @@
 # cypress-teamcity-reporter
 
 [![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter)
-[![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/travisjeffery/mocha-teamcity-reporter)
+[![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter)
+<a href="https://greenkeeper.io">
+<img alt="Greenkeeper" src="https://badges.greenkeeper.io/semantic-release/semantic-release.svg">
+</a>
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/prma85/cypress-teamcity-reporter.svg?columns=all)](http://waffle.io/prma85/cypress-teamcity-reporter)
 
 # cypress-teamcity-reporter
 
