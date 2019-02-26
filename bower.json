@@ -1,6 +1,6 @@
 {
     "name": "cypress-teamcity-reporter",
-    "version": "2.6.0",
+    "version": "2.6.1",
     "homepage": "https://github.com/prma85/cypress-teamcity-reporter",
     "description": "A simple, lightweight Backgrid extension to create accordions",
     "authors": ["Paulo Andrade <prma85@gmail.com>"],
@@ -11,11 +11,11 @@
     "dependencies": {
         "mocha": ">=3.5.0 < 6"
     },
-    "_release": "2.6.0",
+    "_release": "2.6.1",
     "_resolution": {
         "type": "version",
-        "tag": "2.6.0"
+        "tag": "2.6.1"
     },
     "_source": "https://github.com/prma85/cypress-teamcity-reporter.git",
-    "_target": "2.6.0"
+    "_target": "2.6.1"
 }
