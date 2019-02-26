@@ -1,3 +1,6 @@
+# 2.6.1 / 2019-02-21
+- Changes to publish the NPM package
+
 # 2.6.0 / 2019-02-21
 
 -   Minor changes
