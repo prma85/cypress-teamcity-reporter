@@ -28,7 +28,7 @@
         "jetbrains"
     ],
     "dependencies": {
-        "mocha": ">=3.5.0 < 6"
+        "mocha": ">=3.5.0 < 7"
     },
     "author": "Paulo Andrade",
     "maintainers": [
