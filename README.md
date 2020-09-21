@@ -1,28 +1,18 @@
 # cypress-teamcity-reporter
 
-[![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter)
-[![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter)
-<a href="https://greenkeeper.io">
-<img alt="Greenkeeper" src="https://badges.greenkeeper.io/semantic-release/semantic-release.svg">
-</a>
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/prma85/cypress-teamcity-reporter.svg?columns=all)](http://waffle.io/prma85/cypress-teamcity-reporter)
+[![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5039ebe8175e46eaa00a8ef85dbcf523)](https://www.codacy.com/manual/paulo85br/cypress-teamcity-reporter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prma85/cypress-teamcity-reporter&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter)
 
 cypress-teamcity-reporter is a Teamcity reporter which makes it possible to display test results in real-time, makes test information
 available on the Tests tab of the Build Results page. It is based on the package `@cypress/mocha-teamcity-reporter` and was improved with new informations and support to the newer versions of mocha.
 
-## Version 2.x changes
+## Version changes
 
--   Breaking change, support node4.x+ only
--   Support flowId's
-    -   Why use flowIds? Flow tracking is necessary, for example, to distinguish separate processes running in parallel
-    -   This defaults to process.pid, so it works with concurrent task runners (Gulp/Grunt etc)
--   other small bug fixes
--   Functional tests
+Check out the [changelog]("./CHANGELOG.md")
 
 ## Requirements
 
--   NodeJs 4+
--   Web Browser supporting ES5
+- NodeJs 6+
+- Web Browser supporting ES6
 
 ## To Install
 
@@ -30,15 +20,9 @@ In your project run a npm install command:
 
 `npm install cypress-teamcity-reporter --save-dev`
 
-Basically, have your project's package.json be like:
+or 
 
-```js
-{
-  "devDependencies": {
-    "cypress-teamcity-reporter": ">=2.0.0"
-  }
-}
-```
+`yarn add cypress-teamcity-reporter --dev`
 
 ## Usage
 
@@ -54,12 +38,12 @@ To use it in the TeamCity, you can call:
 
 ## Running In Browser
 
--   Use `lib/teamcityBrowser`
--   Has option parsing stripped out for the moment
--   Example use can be found in `test\browser`
--   Custom log function can be set with window.customLogFunction
+- Use `lib/teamcityBrowser`
+- Has option parsing stripped out for the moment
+- Example use can be found in `test\browser`
+- Custom log function can be set with window.customLogFunction
 
-## Customisation:
+## Customization
 
 ### TeamCity flowId
 
@@ -71,28 +55,28 @@ Can set flowId like:
 Can set a top-level suite name, which will wrap all other suites.  
 This is useful for reading test output when running multiple suites in a single build
 
--   Environment variable: `MOCHA_TEAMCITY_TOP_LEVEL_SUITE=<suiteName>`
--   Reporter option: `topLevelSuite=<suiteName>`
+- Environment variable: `MOCHA_TEAMCITY_TOP_LEVEL_SUITE=<suiteName>`
+- Reporter option: `topLevelSuite=<suiteName>`
 
 ### log test failures with std error
 
 To enable this please
 Please note this will probaly be made default in the next major version
 
--   Environment variable: `USE_STD_ERROR=true`
--   Reporter option: `useStdError=true`
+- Environment variable: `USE_STD_ERROR=true`
+- Reporter option: `useStdError=true`
 
 ### Record hook failures
 
 Record failures for hooks such as before/after etc
 Please note this will probably be made default in the next major version
 
--   Environment variable: `RECORD_HOOK_FAILURES=true`
--   Reporter option: `recordHookFailures=true`
+- Environment variable: `RECORD_HOOK_FAILURES=true`
+- Reporter option: `recordHookFailures=true`
 
 ### Setting options
 
--   Set with reporter-options:
+- Set with reporter-options:
 
 `mocha test --reporter mocha-teamcity-reporter --reporter-options topLevelSuite=top-level-suite-name`
 
@@ -100,6 +84,6 @@ Please note this will probably be made default in the next major version
 
 `mocha test --reporter mocha-teamcity-reporter --reporter-options useStdError=true`
 
--   Set with environment variable
+- Set with environment variable
 
 `MOCHA_TEAMCITY_TOP_LEVEL_SUITE='top-level-suite-name' mocha test --reporter mocha-teamcity-reporter`

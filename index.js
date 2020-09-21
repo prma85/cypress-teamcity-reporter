@@ -1,1 +1,1 @@
-module.exports = require('./lib/teamcity')
+module.exports = require("./lib/teamcity");
