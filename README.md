@@ -1,5 +1,6 @@
 # cypress-teamcity-reporter
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1710e73c632a40bd85221c3999572183)](https://app.codacy.com/manual/paulo85br/cypress-teamcity-reporter?utm_source=github.com&utm_medium=referral&utm_content=prma85/cypress-teamcity-reporter&utm_campaign=Badge_Grade_Settings)
 [![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter)
 [![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter)
 <a href="https://greenkeeper.io">
