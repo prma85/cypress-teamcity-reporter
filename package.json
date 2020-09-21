@@ -1,52 +1,59 @@
 {
-    "name": "cypress-teamcity-reporter",
-    "engines": {
-        "node": ">=4"
+  "name": "cypress-teamcity-reporter",
+  "engines": {
+    "node": ">=4"
+  },
+  "version": "3.0.0",
+  "description": "teamcity reporter for cypress",
+  "main": "./lib/teamcity.js",
+  "directories": {
+    "lib": "./lib"
+  },
+  "scripts": {
+    "test": "mocha test/functional test/programmatic",
+    "test-teamcity": "mocha test/functional test/programmatic --reporter lib/teamcity.js",
+    "test-teamcity-example": "mocha test/example/exampleSimple.js --reporter lib/teamcity.js",
+    "lint": "eslint lib/*.js test/**/*.js",
+    "lint-fix": "eslint --fix lib/*.js test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/prma85/cypress-teamcity-reporter"
+  },
+  "keywords": [
+    "cypress",
+    "mocha",
+    "teamcity",
+    "reporter",
+    "jetbrains"
+  ],
+  "peerDependencies": {
+    "mocha": ">=3.5.0"
+  },
+  "author": "Paulo Andrade",
+  "maintainers": [
+    {
+      "name": "Travis Jeffery",
+      "url": "https://github.com/travisjeffery"
     },
-    "version": "2.6.1",
-    "description": "teamcity reporter for cypress",
-    "main": "./lib/teamcity.js",
-    "directories": {
-        "lib": "./lib"
-    },
-    "scripts": {
-        "test": "mocha test/functional test/programmatic",
-        "test-teamcity": "mocha test/functional test/programmatic --reporter lib/teamcity.js",
-        "test-teamcity-example": "mocha test/example/exampleSimple.js --reporter lib/teamcity.js",
-        "lint": "eslint lib/*.js test/**/*.js",
-        "lint-fix": "eslint --fix lib/*.js test/**/*.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/prma85/cypress-teamcity-reporter"
-    },
-    "keywords": [
-        "cypress",
-        "mocha",
-        "teamcity",
-        "reporter",
-        "jetbrains"
-    ],
-    "dependencies": {
-        "mocha": ">=3.5.0 < 6"
-    },
-    "author": "Paulo Andrade",
-    "maintainers": [
-        {
-            "name": "Travis Jeffery",
-            "url": "https://github.com/travisjeffery"
-        },
-        {
-            "name": "Jamie Sherriff",
-            "url": "https://github.com/jamie-sherriff"
-        }
-    ],
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/prma85/cypress-teamcity-reporter/issues"
-    },
-    "devDependencies": {
-        "chai": "^4.1.2",
-        "eslint": "^4.4.1"
+    {
+      "name": "Jamie Sherriff",
+      "url": "https://github.com/jamie-sherriff"
     }
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/prma85/cypress-teamcity-reporter/issues"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "babel-eslint": "^10.1.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "mocha": "^8.1.3",
+    "typescript": "^4.0.3"
+  }
 }
