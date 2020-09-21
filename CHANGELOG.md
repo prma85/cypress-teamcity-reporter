@@ -14,8 +14,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Breaking: focus on only support node.js environments
-- Breaking: Remove phantomJs support only supports environments which have require
+- _Breaking_: focus on only support node.js environments
+- _Breaking_: Remove phantomJs support only supports environments which have require
+- _Breaking_: Using ESLint 7+ for development, what means to create a branch/PR you will need node 10+
 
 ### Added
 

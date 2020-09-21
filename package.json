@@ -21,7 +21,13 @@
     "type": "git",
     "url": "https://github.com/prma85/cypress-teamcity-reporter"
   },
-  "keywords": ["cypress", "mocha", "teamcity", "reporter", "jetbrains"],
+  "keywords": [
+    "cypress",
+    "mocha",
+    "teamcity",
+    "reporter",
+    "jetbrains"
+  ],
   "peerDependencies": {
     "mocha": ">=3.5.0"
   },
