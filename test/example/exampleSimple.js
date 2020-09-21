@@ -1,6 +1,3 @@
-/**
- * Created by jamie on 12/08/2017.
- */
 "use strict";
 const assert = require("assert");
 describe("Example Test Top Describe", function () {

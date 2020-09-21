@@ -1,7 +1,3 @@
-/**
- * Created by jamie on 12/08/2017.
- * Must be run from the root project dir
- */
 "use strict";
 
 const { execFile } = require("child_process");

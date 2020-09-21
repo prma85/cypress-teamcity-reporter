@@ -1,7 +1,7 @@
 {
   "name": "cypress-teamcity-reporter",
   "engines": {
-    "node": ">=4"
+    "node": ">=6"
   },
   "version": "3.0.0",
   "description": "teamcity reporter for cypress",
