@@ -1,14 +1,12 @@
 {
-  "parser": "@typescript-eslint/parser",
+  "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true
-    },
-    "ecmaVersion": 2020,
+    "ecmaVersion": 2018,
     "sourceType": "module",
-    "useJSXTextNode": true,
-    "warnOnUnsupportedTypeScriptVersion": false
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "warnOnUnsupportedTypeScriptVersion": false
+    }
   },
   "root": true,
   "env": {
@@ -25,18 +23,9 @@
     "JSON": true,
     "module": true
   },
-  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint"],
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
+  "extends": ["eslint:recommended"],
   "rules": {
-    "@typescript-eslint/explicit-function-return-type": "off",
-    "@typescript-eslint/no-explicit-any": "off",
     "quotes": "warn",
-    "@typescript-eslint/explicit-module-boundary-types": "off",
-    "@typescript-eslint/no-var-requires": "off",
     "indent": [
       "warn",
       2,
@@ -47,19 +36,5 @@
         "ignoredNodes": ["ConditionalExpression > ObjectExpression"]
       }
     ]
-  },
-  "overrides": [
-    {
-      "files": ["*.js"],
-      "parser": "babel-eslint",
-      "parserOptions": {
-        "ecmaVersion": 2018,
-        "sourceType": "module",
-        "ecmaFeatures": {
-          "experimentalObjectRestSpread": true,
-          "warnOnUnsupportedTypeScriptVersion": false
-        }
-      }
-    }
-  ]
+  }
 }

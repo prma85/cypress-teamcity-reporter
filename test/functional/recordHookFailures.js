@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 "use strict";
 const { execFile } = require("child_process");
 const { assert } = require("chai");
@@ -173,7 +174,6 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
           teamCityStdout = stdout;
           teamCityStderr = stderr;
           teamCityOutputArray = stdout.split("\n");
-          // eslint-disable-next-line @typescript-eslint/no-unused-vars
           teamCityErrorOutputArray = stderr.split("\n");
           logMochaOutput(stdout, stderr);
           done();
