@@ -5,20 +5,20 @@ const { logMochaOutput, getMochaPath } = require("../testHelpers");
 const internalMochaPath = getMochaPath();
 const path = require("path");
 
-describe("Check TeamCity Output is correct with stdError option", function () {
+describe("Check TeamCity Output is correct with actualVsExpected option", function () {
   let teamCityStdout, teamCityStderr, teamCityOutputArray, teamCityErrorOutputArray;
   function verifyResults() {
     it("stdout output should exist", function () {
       assert.isOk(teamCityStdout, "has output");
       assert.isOk(teamCityOutputArray, "array of output is populated");
-      assert.isOk(teamCityOutputArray.length >= 9, "at least 9 lines of output");
-      assert.lengthOf(teamCityOutputArray, 9);
+      assert.isOk(teamCityOutputArray.length >= 10, "at least 10 lines of output");
+      assert.lengthOf(teamCityOutputArray, 10);
     });
 
     it("stderr output should exist", function () {
-      assert.isOk(teamCityStderr);
-      assert.isAbove(teamCityStderr.length, 15);
-      assert.lengthOf(teamCityErrorOutputArray, 2);
+      assert.isNotOk(teamCityStderr);
+      assert.isOk(teamCityStderr.length === 0);
+      assert.lengthOf(teamCityErrorOutputArray, 1);
     });
 
     it("stdout output should exist", function () {
@@ -62,7 +62,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
     });
 
     it("Test Failed is Failing", function () {
-      const rowToCheck = teamCityErrorOutputArray;
+      const rowToCheck = teamCityOutputArray[4];
       assert.isOk(/##teamcity\[testFailed/.test(rowToCheck));
       assert.isOk(/name='Failing Test @fail'/.test(rowToCheck));
       assert.isOk(/flowId=/.test(rowToCheck));
@@ -73,10 +73,17 @@ describe("Check TeamCity Output is correct with stdError option", function () {
       assert.isOk(/|simple.js:11:11/.test(rowToCheck));
       assert.isOk(/captureStandardOutput='true'/.test(rowToCheck));
       assert.isOk(/]/.test(rowToCheck));
+      //check keys
+      assert.match(rowToCheck, /actual=/);
+      assert.match(rowToCheck, /expected=/);
+      //check both key and value
+      assert.match(rowToCheck, /actual='2'/);
+      assert.match(rowToCheck, /type='comparisonFailure'/);
+      assert.match(rowToCheck, /expected='1'/);
     });
 
     it("Failing Test Finished is OK", function () {
-      const rowToCheck = teamCityOutputArray[4];
+      const rowToCheck = teamCityOutputArray[5];
       assert.match(rowToCheck, /##teamcity\[testFinished/);
       assert.match(rowToCheck, /name='Failing Test @fail'/);
       assert.match(rowToCheck, /flowId=/);
@@ -85,7 +92,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
     });
 
     it("Skip Test Finished is ignored", function () {
-      const rowToCheck = teamCityOutputArray[5];
+      const rowToCheck = teamCityOutputArray[6];
       assert.isOk(/##teamcity\[testIgnored/.test(rowToCheck));
       assert.isOk(/name='Skipped Test @skip'/.test(rowToCheck));
       assert.isOk(/flowId=/.test(rowToCheck));
@@ -95,7 +102,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
     });
 
     it("Skip Test Finished is OK", function () {
-      const rowToCheck = teamCityOutputArray[6];
+      const rowToCheck = teamCityOutputArray[7];
       assert.isOk(/##teamcity\[testFinished/.test(rowToCheck));
       assert.isOk(/name='Skipped Test @skip'/.test(rowToCheck));
       assert.isOk(/flowId=/.test(rowToCheck));
@@ -104,7 +111,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
     });
 
     it("Suite Finished is OK", function () {
-      const rowToCheck = teamCityOutputArray[7];
+      const rowToCheck = teamCityOutputArray[8];
       assert.isOk(/##teamcity\[testSuiteFinished/.test(rowToCheck));
       assert.isOk(/name='Top Describe'/.test(rowToCheck));
       assert.isOk(/duration=/.test(rowToCheck));
@@ -113,7 +120,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
     });
 
     it("Suite Root Finished is OK", function () {
-      const rowToCheck = teamCityOutputArray[7];
+      const rowToCheck = teamCityOutputArray[8];
       assert.isOk(/##teamcity\[testSuiteFinished/.test(rowToCheck));
       assert.isNotOk(/name='mocha.suite'/.test(rowToCheck));
       assert.isOk(/duration=/.test(rowToCheck));
@@ -127,7 +134,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
       const opts = {
         env: Object.assign(
           {
-            ["USE_STD_ERROR"]: "true",
+            ["ACTUAL_VS_EXPECTED"]: "true",
           },
           process.env
         ),
@@ -154,7 +161,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
           "--reporter",
           "lib/teamcity",
           "--reporter-options",
-          "useStdError=true",
+          "actualVsExpected=true",
         ],
         (err, stdout, stderr) => {
           teamCityStdout = stdout;

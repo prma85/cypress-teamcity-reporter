@@ -10,23 +10,18 @@
     "lib": "./lib"
   },
   "scripts": {
-    "test": "mocha test/functional test/programmatic",
-    "test-teamcity": "mocha test/functional test/programmatic --reporter lib/teamcity.js",
-    "test-teamcity-example": "mocha test/example/exampleSimple.js --reporter lib/teamcity.js",
+    "lint-fix": "eslint --fix lib/*.js test/**/*.js",
     "lint": "eslint lib/*.js test/**/*.js",
-    "lint-fix": "eslint --fix lib/*.js test/**/*.js"
+    "prepare": "npm run test",
+    "test-teamcity-example": "mocha test/example/exampleSimple.js --reporter lib/teamcity.js",
+    "test-teamcity": "mocha test/functional test/programmatic --reporter lib/teamcity.js",
+    "test": "mocha test/functional test/programmatic"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/prma85/cypress-teamcity-reporter"
   },
-  "keywords": [
-    "cypress",
-    "mocha",
-    "teamcity",
-    "reporter",
-    "jetbrains"
-  ],
+  "keywords": ["cypress", "mocha", "teamcity", "reporter", "jetbrains"],
   "peerDependencies": {
     "mocha": ">=3.5.0"
   },

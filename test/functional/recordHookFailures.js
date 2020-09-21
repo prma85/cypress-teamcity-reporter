@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 "use strict";
 const { execFile } = require("child_process");
 const { assert } = require("chai");
@@ -7,12 +6,13 @@ const internalMochaPath = getMochaPath();
 const path = require("path");
 
 describe("Check TeamCity Output is correct with recordHookFailures option", function () {
-  let teamCityStdout, teamCityStderr, teamCityOutputArray, teamCityErrorOutputArray;
+  let teamCityStdout, teamCityStderr, teamCityOutputArray;
   function verifyResults() {
     it("stdout output should exist", function () {
       assert.isOk(teamCityStdout, "has output");
       assert.isOk(teamCityOutputArray, "array of output is populated");
-      assert.lengthOf(teamCityOutputArray, 14);
+      assert.lengthOf(teamCityOutputArray, 13);
+      assert.isEmpty(teamCityOutputArray[12]);
     });
 
     it("stderr output should not exist", function () {
@@ -36,7 +36,7 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
     it("Hook Test started is OK", function () {
       const rowToCheck = teamCityOutputArray[1];
       assert.match(rowToCheck, /##teamcity\[testStarted/);
-      assert.match(rowToCheck, /name='"before all" hook'/);
+      assert.match(rowToCheck, /name='"before all" hook/);
       assert.match(rowToCheck, /flowId=/);
       assert.match(rowToCheck, /]/);
     });
@@ -44,7 +44,7 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
     it("Hook Test Failed is OK", function () {
       const rowToCheck = teamCityOutputArray[2];
       assert.isOk(/##teamcity\[testFailed/.test(rowToCheck));
-      assert.isOk(/name='"before all" hook'/.test(rowToCheck));
+      assert.isOk(/name='"before all" hook/.test(rowToCheck));
       assert.isOk(/details='/.test(rowToCheck));
       assert.isOk(/Error: Before hook error fail/.test(rowToCheck));
       assert.isOk(/|n/.test(rowToCheck));
@@ -122,9 +122,9 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
     });
 
     it("Suite Root Finished is OK", function () {
-      const rowToCheck = teamCityOutputArray[12];
+      const rowToCheck = teamCityOutputArray[11];
       assert.isOk(/##teamcity\[testSuiteFinished/.test(rowToCheck));
-      assert.isOk(/name='mocha.suite'/.test(rowToCheck));
+      assert.isNotOk(/name='mocha.suite'/.test(rowToCheck));
       assert.isOk(/duration=/.test(rowToCheck));
       assert.isOk(/flowId=/.test(rowToCheck));
       assert.isOk(/]/.test(rowToCheck));
@@ -150,7 +150,6 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
           teamCityStdout = stdout;
           teamCityStderr = stderr;
           teamCityOutputArray = stdout.split("\n");
-          teamCityErrorOutputArray = stderr.split("\n");
           logMochaOutput(stdout, stderr);
           done();
         }
@@ -174,7 +173,6 @@ describe("Check TeamCity Output is correct with recordHookFailures option", func
           teamCityStdout = stdout;
           teamCityStderr = stderr;
           teamCityOutputArray = stdout.split("\n");
-          teamCityErrorOutputArray = stderr.split("\n");
           logMochaOutput(stdout, stderr);
           done();
         }

@@ -108,7 +108,7 @@ describe("Check TeamCity Output is correct", function () {
     assert.isOk(/##teamcity\[testFinished/.test(rowToCheck));
     assert.isOk(/name='Skipped Test @skip'/.test(rowToCheck));
     assert.isOk(/flowId=/.test(rowToCheck));
-    assert.isOk(/duration=/.test(rowToCheck));
+    assert.isNotOk(/duration=/.test(rowToCheck));
     assert.isOk(/]/.test(rowToCheck));
   });
 
@@ -116,15 +116,6 @@ describe("Check TeamCity Output is correct", function () {
     const rowToCheck = teamCityOutputArray[8];
     assert.isOk(/##teamcity\[testSuiteFinished/.test(rowToCheck));
     assert.isOk(/name='Top Describe'/.test(rowToCheck));
-    assert.isOk(/duration=/.test(rowToCheck));
-    assert.isOk(/flowId=/.test(rowToCheck));
-    assert.isOk(/]/.test(rowToCheck));
-  });
-
-  it("Suite Root Finished is OK", function () {
-    const rowToCheck = teamCityOutputArray[9];
-    assert.isOk(/##teamcity\[testSuiteFinished/.test(rowToCheck));
-    assert.isOk(/name='mocha.suite'/.test(rowToCheck));
     assert.isOk(/duration=/.test(rowToCheck));
     assert.isOk(/flowId=/.test(rowToCheck));
     assert.isOk(/]/.test(rowToCheck));

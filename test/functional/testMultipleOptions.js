@@ -5,7 +5,7 @@ const { logMochaOutput, getMochaPath } = require("../testHelpers");
 const internalMochaPath = getMochaPath();
 const path = require("path");
 
-describe("Check TeamCity Output is correct with stdError option", function () {
+describe("Check TeamCity Output is correct with stdError and actualVsExpected options", function () {
   let teamCityStdout, teamCityStderr, teamCityOutputArray, teamCityErrorOutputArray;
   function verifyResults() {
     it("stdout output should exist", function () {
@@ -73,6 +73,12 @@ describe("Check TeamCity Output is correct with stdError option", function () {
       assert.isOk(/|simple.js:11:11/.test(rowToCheck));
       assert.isOk(/captureStandardOutput='true'/.test(rowToCheck));
       assert.isOk(/]/.test(rowToCheck));
+      //check keys
+      assert.match(rowToCheck, /actual=/);
+      assert.match(rowToCheck, /expected=/);
+      //check both key and value
+      assert.match(rowToCheck, /actual='2'/);
+      assert.match(rowToCheck, /expected='1'/);
     });
 
     it("Failing Test Finished is OK", function () {
@@ -127,6 +133,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
       const opts = {
         env: Object.assign(
           {
+            ["ACTUAL_VS_EXPECTED"]: "true",
             ["USE_STD_ERROR"]: "true",
           },
           process.env
@@ -154,7 +161,7 @@ describe("Check TeamCity Output is correct with stdError option", function () {
           "--reporter",
           "lib/teamcity",
           "--reporter-options",
-          "useStdError=true",
+          "actualVsExpected=true,useStdError=true",
         ],
         (err, stdout, stderr) => {
           teamCityStdout = stdout;
