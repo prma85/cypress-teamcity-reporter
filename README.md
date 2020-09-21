@@ -1,10 +1,6 @@
 # cypress-teamcity-reporter
 
-[![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter)
-[![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter)
-<a href="https://greenkeeper.io">
-<img alt="Greenkeeper" src="https://badges.greenkeeper.io/semantic-release/semantic-release.svg">
-</a>
+[![NPM version](https://badge.fury.io/js/cypress-teamcity-reporter.svg)](http://badge.fury.io/js/cypress-teamcity-reporter) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/5039ebe8175e46eaa00a8ef85dbcf523)](https://www.codacy.com/manual/paulo85br/cypress-teamcity-reporter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=prma85/cypress-teamcity-reporter&amp;utm_campaign=Badge_Grade) [![Build Status](https://travis-ci.org/prma85/cypress-teamcity-reporter.svg?branch=master)](https://travis-ci.org/prma85/cypress-teamcity-reporter) <a href="https://greenkeeper.io"><img alt="Greenkeeper" src="https://badges.greenkeeper.io/semantic-release/semantic-release.svg"></a>
 
 cypress-teamcity-reporter is a Teamcity reporter which makes it possible to display test results in real-time, makes test information
 available on the Tests tab of the Build Results page. It is based on the package `@cypress/mocha-teamcity-reporter` and was improved with new informations and support to the newer versions of mocha.
