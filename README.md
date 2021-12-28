@@ -78,18 +78,18 @@ Please note this will probably be made default in the next major version
 
 Automatically associate failing tests with a screenshot through the `testMetaData` tag.
 
-- Environment variable: `TEAMCITY_SCREENSHOTS=true`
-- Reporter Option: `teamcityScreenshots=true`
-- Default: `false`
+  - Environment variable: `TEAMCITY_SCREENSHOTS=true`
+  - Reporter Option: `teamcityScreenshots=true`
+  - Default: `false`
 
-- Environment variable: `SCREENSHOTS_ARTIFACTS_DIR="path/to/screenshots"`
-- Reporter Option: `screenshotsArtifactsDir=\"path/to/screenshots\"`
-- Default: `screenshots`
+  - Environment variable: `SCREENSHOTS_ARTIFACTS_DIR="path/to/screenshots"`
+  - Reporter Option: `screenshotsArtifactsDir=\"path/to/screenshots\"`
+  - Default: `screenshots`
 
-- Environment variable: `CYPRESS_INTEGRATION_FOLDER="path/to/integration"`
-- Reporter Option: `integrationFolder=\"path/to/integration\"`
-- Default: `cypress/integration`
-  - Note: Setting the environment variable will override the integration folder cypress uses to execute tests.
+  - Environment variable: `CYPRESS_INTEGRATION_FOLDER="path/to/integration"`
+  - Reporter Option: `integrationFolder=\"path/to/integration\"`
+  - Default: `cypress/integration`
+    - Note: Setting the environment variable will override the integration folder cypress uses to execute tests.
 
 ### Setting options
 
